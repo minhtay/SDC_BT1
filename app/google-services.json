@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "918770994507",
+    "project_id": "sdc-bt1",
+    "storage_bucket": "sdc-bt1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918770994507:android:5ec1d72f7ffbda8b04ecce",
+        "android_client_info": {
+          "package_name": "com.example.sdc_bt1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918770994507-jf7ne55s875jh95kuc43u6q3771k8ddg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBFfUm9_KbTIYNhBNxRVK_5oTvjU1dwRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918770994507-jf7ne55s875jh95kuc43u6q3771k8ddg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
