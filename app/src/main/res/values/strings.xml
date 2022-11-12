@@ -3,4 +3,11 @@
     <string name="title_activity_maps">MapsActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_history">History</string>
+
+    <!-- String btn_action HomeFragment -->
+    <string name="btn_action_start">Start</string>
+    <string name="btn_action_stop">Stop</string>
+
 </resources>
