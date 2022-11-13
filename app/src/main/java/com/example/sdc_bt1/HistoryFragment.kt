@@ -1,92 +1,59 @@
 package com.example.sdc_bt1
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.sdc_bt1.adapter.RCVHistoryAdapter
-import com.example.sdc_bt1.databinding.FragmentHistoryBinding
-import com.example.sdc_bt1.model.LocationData
-import com.example.sdc_bt1.model.RCVHistoryData
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [HistoryFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 class HistoryFragment : Fragment() {
-
-    private lateinit var binding: FragmentHistoryBinding
-    private lateinit var adapter: RCVHistoryAdapter
-    private var dataReponse = ArrayList<RCVHistoryData>()
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //initview()
-        readData()
-    }
-
-    private fun initview() {
-        binding.rcvHistory.layoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-        adapter = RCVHistoryAdapter(requireContext(), dataReponse) { data ->
-            onClickItem(data)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
-        binding.rcvHistory.adapter = adapter
-    }
-
-    private fun onClickItem(data: Any) {
-        TODO("Not yet implemented")
-    }
-
-    private fun readData() {
-        var map = HashMap<String, HashMap<String, Any>>()
-        var map1 = HashMap<String, Any>()
-        var arr = ArrayList<LocationData>()
-        FirebaseDatabase.getInstance().getReference("Location")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        map.clear()
-                        map1.clear()
-                        for (data in snapshot.children) {
-                            map = data.value as HashMap<String, HashMap<String, Any>>
-                            map.keys.forEach {
-                                map1 = map[it]!!
-                                arr.add(
-                                    LocationData(
-                                        map1["id"].toString(),
-                                        map1["date"].toString(),
-                                        map1["timeStar"].toString().toLongOrNull()
-                                    )
-                                )
-                            }
-                            dataReponse.add(RCVHistoryData(data.key.toString(),arr))
-                        }
-                        Log.d("TAG", "onDataChange: ")
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-
-            })
-
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHistoryBinding.inflate(layoutInflater)
-        return binding.root
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
-
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment HistoryFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            HistoryFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
 }
