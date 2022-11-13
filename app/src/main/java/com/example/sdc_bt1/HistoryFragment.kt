@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.sdc_bt1.adapter.RCVHistoryAdapter
 import com.example.sdc_bt1.databinding.FragmentHistoryBinding
 import com.example.sdc_bt1.model.LocationData
@@ -23,10 +22,9 @@ class HistoryFragment : Fragment() {
     private lateinit var adapter: RCVHistoryAdapter
     private var dataReponse = ArrayList<RCVHistoryData>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        //initview()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initview()
         readData()
     }
 
@@ -66,14 +64,12 @@ class HistoryFragment : Fragment() {
                                 )
                             }
                             dataReponse.add(RCVHistoryData(data.key.toString(),arr))
+                            adapter.notifyDataSetChanged()
                         }
-                        Log.d("TAG", "onDataChange: ")
                     }
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
+                override fun onCancelled(error: DatabaseError) {}
 
             })
 
