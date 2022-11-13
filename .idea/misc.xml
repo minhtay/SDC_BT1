@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/SDC_BT1/app/src/main/res/drawable/border_calendar_filter_history.xml" value="0.192" />
         <entry key="..\:/Android/SDC_BT1/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/SDC_BT1/app/src/main/res/layout/activity_main2.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/SDC_BT1/app/src/main/res/layout/fragment_history.xml" value="0.27447916666666666" />
         <entry key="..\:/Android/SDC_BT1/app/src/main/res/layout/fragment_home2.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android/SDC_BT1/app/src/main/res/layout/item_rcv_history.xml" value="0.2734375" />
         <entry key="..\:/Android/SDC_BT1/app/src/main/res/menu/bnv_main.xml" value="0.2734375" />
       </map>
     </option>

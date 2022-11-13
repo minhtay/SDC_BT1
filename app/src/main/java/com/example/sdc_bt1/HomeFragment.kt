@@ -147,7 +147,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private fun uploadLocationStart() {
         id = UUID.randomUUID().toString()
-        val data = LocationData(id,date,timeStamp,lat,lon)
+        val data = LocationData(id,date,timeStamp)
         FirebaseDatabase.getInstance().getReference("Location")
             .child(date).child(id).setValue(data)
     }
